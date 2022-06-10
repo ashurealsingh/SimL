@@ -26,6 +26,12 @@ public class BaseController {
 		return VIEW_INDEX;
 
 	}
+	@RequestMapping(value = "/{company}", method = RequestMethod.GET)
+	public String welcomeCompany(@PathVariable String company, ModelMap model){
+		model.addAttribute("message", "ORG:  " + company);
+		model.addAttribute("counter", ++counter);
+		return VIEW_INDEX;
+	}
 
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
